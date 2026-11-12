@@ -745,6 +745,11 @@ function renderLibrary() {
       return details;
     }
     const details = branch(`${group.name.replace('유관사 ', '').replace(' pdf', '')} · ${files.length}`, group.name, 'toc-group');
+    if(group.custom&&group.tree){
+      const included=new Set(files.map(file=>file.id));
+      function addNodes(nodes,parent){let count=0;for(const node of nodes){if(node.kind==='folder'){const nested=branch(node.name,group.name+'/'+node.id,'toc-folder'),children=addNodes(node.children,nested);if(children||!query){parent.append(nested);count+=children;}}else if(included.has(node.file.id)){const file=node.file,button=document.createElement('button');button.className='file-item';button.dataset.id=file.id;button.title=file.relativePath;button.innerHTML=fileIcon;const info=document.createElement('span'),title=document.createElement('span'),size=document.createElement('span');title.className='name';title.textContent=file.name.replace(/\.pdf$/i,'');size.className='size';size.textContent=formatSize(file.size);info.append(title,size);button.append(info);button.onclick=()=>{void openLibraryFile(file);};parent.append(button);count++;}}return count;}
+      addNodes(group.tree,details);$('library').append(details);continue;
+    }
     const folders = new Map([['', details]]);
     if(group.custom&&!query)for(const fullPath of group.folders||[]){let parent=details,folderPath='';for(const folder of fullPath.split('/')){folderPath+='/'+folder;if(!folders.has(folderPath)){const nested=branch(folder,group.name+folderPath,'toc-folder');parent.append(nested);folders.set(folderPath,nested);}parent=folders.get(folderPath);}}
     for (const file of files) {
