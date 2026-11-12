@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#eef0eb">
+  <title>PDF 뷰어</title>
+  <link rel="icon" type="image/x-icon" href="app-icon.ico">
+  <link rel="stylesheet" href="vendor/text_layer.css"><link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <svg class="color-filter-defs" aria-hidden="true"><defs><filter id="readerColorFilter" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB"><feColorMatrix id="readerColorMatrix" type="matrix"/></filter></defs></svg>
+  <input id="fileInput" type="file" accept="application/pdf,.pdf" hidden>
+
+  <div class="workspace">
+    <aside id="sidebar" class="sidebar">
+      <div class="sidebar-heading"><span>내 책장</span><button class="sidebar-open" id="openFile" title="PDF 열기 (Ctrl + O)"><span aria-hidden="true">＋</span> PDF 열기</button></div>
+      <label class="library-search"><svg viewBox="0 0 24 24"><circle cx="10" cy="10" r="6"/><path d="m15 15 5 5"/></svg><input id="librarySearch" type="search" placeholder="파일 찾기" aria-label="책장에서 파일 찾기"></label>
+      <div class="sidebar-actions"><button id="manageLibrary" class="text-button">책장 관리</button><button id="showUpdate" class="text-button">업데이트</button></div>
+      <div id="library" class="library"><p class="muted">책장을 불러오는 중…</p></div>
+      <div class="sidebar-foot"><span class="small-dot"></span> 파일은 이 PC에서만 열립니다.</div>
+    </aside>
+
+    <main id="main">
+      <section id="welcome" class="welcome">
+        <button id="welcomeLibrary" class="text-button welcome-library" aria-controls="sidebar" title="목차 열기">☰ 목차</button>
+        <div class="welcome-copy"><span class="eyebrow">A LITTLE ROOM FOR READING</span><h1>크기가 달라도,<br>읽기는 나란히.</h1><p>서로 다른 PDF 페이지를 같은 크기로.<br>읽는 흐름이 끊기지 않는 나만의 책장.</p></div>
+        <button class="drop-card" id="dropOpen"><span class="book-art"><span class="book-page left"><i></i><i></i><i></i><i></i><i></i></span><span class="book-page right"><i></i><i></i><i></i><i></i><i></i></span></span><strong>PDF를 여기에 놓으세요</strong><span>또는 클릭해서 파일 선택</span><span class="drop-note">왼쪽 책장에서도 바로 열 수 있어요</span></button>
+        <div class="welcome-features"><span><b>01</b> 자동 크기 맞춤</span><span><b>02</b> 빠른 페이지 넘김</span><span><b>03</b> 자유로운 확대</span></div>
+      </section>
+
+      <section id="reader" class="reader" hidden>
+        <button id="readerTools" class="reader-tools-handle" aria-expanded="false" title="목차와 보기 도구 표시">☰ 도구</button>
+        <div class="reader-toolbar" aria-label="PDF 보기 도구">
+          <div class="toolbar-row">
+            <div class="toolbar-start" role="group" aria-label="보기와 배율">
+              <button id="readerSidebarToggle" class="text-button" title="목차 열고 닫기" aria-controls="sidebar" aria-expanded="true">☰ 목차</button>
+              <div class="segmented" role="group" aria-label="보기 모드"><button id="singleMode" aria-pressed="false">한 쪽</button><button id="spreadMode" aria-pressed="true">두 쪽</button></div>
+              <label class="zoom-input" title="배율 직접 입력 · Ctrl + 휠로 1%씩 조절"><input id="zoomValue" type="number" min="25" max="400" step="1" value="100" aria-label="확대 배율 퍼센트"><span>%</span></label>
+              <button id="fitToggle" class="text-button panel-toggle fit-toggle" aria-expanded="false" aria-controls="fitPanel" title="여백과 페이지 크기 조절"><span id="fitSummary">여백</span></button>
+            </div>
+            <div class="page-nav toolbar-group" role="group" aria-label="페이지 이동"><button id="previous" class="icon-button" title="이전 쪽 (←)" aria-label="이전 쪽">‹</button><input id="pageNumber" type="number" min="1" value="1" aria-label="이동할 페이지"><span id="pageTotal">/ 0</span><button id="next" class="icon-button" title="다음 쪽 (→)" aria-label="다음 쪽">›</button></div>
+            <div class="toolbar-end" role="group" aria-label="색상과 도구">
+              <button id="gptSelect" class="text-button" aria-pressed="false" title="PDF 영역을 선택해 ChatGPT에 질문">GPT 질문</button>
+              <button id="colorToggle" class="text-button panel-toggle" aria-expanded="false" aria-controls="colorPanel" title="사용자 색 조절">색상</button>
+              <div class="toolbar-group color-quick" role="group" aria-label="문서 색상">
+                <label for="colorQuickPreset" title="문서 색상 선택"><select id="colorQuickPreset" aria-label="색상 바로 선택"><option value="original">원본 색상</option><option value="dim">부드러운 회색</option><option value="warm">따뜻한 회색</option><option value="custom">사용자 색</option></select></label>
+              </div>
+              <button class="icon-button panel-toggle more-toggle" id="moreToggle" aria-expanded="false" aria-controls="morePanel" title="추가 보기 설정" aria-label="추가 보기 설정">⋯</button>
+              <button class="icon-button" id="fullscreen" title="PDF 전체보기 (F11 / F)" aria-label="PDF 전체보기"><svg viewBox="0 0 24 24"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></svg></button>
+              <button id="exitReading" class="text-button" title="전체 화면 나가기 (Esc)">나가기</button>
+            </div>
+          </div>
+        </div>
+        <div id="viewport" class="viewport" tabindex="0" aria-label="PDF 읽기 영역"><div id="spread" class="spread"></div><div id="loading" class="loading" hidden><span></span><span id="loadingText">페이지를 준비하고 있어요</span></div></div>
+        <section id="fitPanel" class="reader-panel fit-panel" aria-label="여백과 페이지 크기" hidden>
+          <div class="panel-heading"><strong>여백과 페이지 크기</strong><button id="fitClose" class="icon-button" aria-label="여백 설정 닫기">×</button></div>
+          <label class="size-row" for="normalize"><span>페이지 크기</span><select id="normalize" aria-label="페이지 크기 보정" title="두 페이지의 크기 정렬"><option value="frame">같은 크기</option><option value="height">같은 높이</option><option value="original">원본 비율</option></select></label>
+          <div class="fit-presets" role="group" aria-label="화면에 맞추기"><button id="fitPage" class="text-button active"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="3" width="12" height="18" rx="1.5"/><path d="M3 7v10m18-10v10"/></svg><span>화면 맞춤</span></button><button id="fitWidth" class="text-button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4v16m18-16v16M5 12h14M8 9l-3 3 3 3m8-6 3 3-3 3"/></svg><span>너비 맞춤</span></button></div>
+          <p class="fit-description">페이지 전체를 보거나 가로 폭을 채워 읽습니다.</p>
+          <fieldset class="reading-adjustment"><legend class="sr-only">여백 제외하고 맞춤</legend>
+            <label class="adjustment-toggle"><input id="cropEnabled" type="checkbox"><span>여백 제외하고 맞춤</span></label>
+            <label class="color-strength" for="cropAmount"><span>자동 여백 제거량 <output id="cropAmountValue">100</output></span><input id="cropAmount" type="range" min="0" max="100" step="1" value="100" aria-label="자동 여백 제거량" disabled></label>
+            <label class="adjustment-toggle secondary"><input id="cropFooter" type="checkbox" disabled><span>쪽수·PART 꼬리말도 제외</span></label>
+            <p>본문과 떨어진 하단 꼬리말과 그 위 공백까지 제외합니다. 인식이 맞지 않으면 세부 조절로 보완하세요.</p>
+            <details class="margin-details"><summary>여백 세부 조절</summary>
+              <p>＋는 더 제외, −는 복원합니다. 현재 화면 방향 기준이며 원본 파일은 바뀌지 않습니다.</p>
+              <label class="color-strength" for="trimTop"><span>위 <output id="trimTopValue">0%</output></span><input id="trimTop" type="range" min="-15" max="15" step="0.5" value="0" aria-label="위쪽 여백 보완" disabled></label>
+              <label class="color-strength" for="trimBottom"><span>아래 <output id="trimBottomValue">0%</output></span><input id="trimBottom" type="range" min="-15" max="15" step="0.5" value="0" aria-label="아래쪽 여백 보완" disabled></label>
+              <label class="color-strength" for="trimLeft"><span>왼쪽 <output id="trimLeftValue">0%</output></span><input id="trimLeft" type="range" min="-15" max="15" step="0.5" value="0" aria-label="왼쪽 여백 보완" disabled></label>
+              <label class="color-strength" for="trimRight"><span>오른쪽 <output id="trimRightValue">0%</output></span><input id="trimRight" type="range" min="-15" max="15" step="0.5" value="0" aria-label="오른쪽 여백 보완" disabled></label>
+              <button id="trimReset" class="text-button">여백 조절 초기화</button>
+            </details>
+          </fieldset>
+        </section>
+        <section id="colorPanel" class="reader-panel color-panel" aria-label="문서 색상" hidden>
+          <div class="panel-heading"><strong>문서 색상</strong><button id="colorClose" class="icon-button" aria-label="색상 설정 닫기">×</button></div>
+          <label class="color-row" for="colorPreset"><span>보기</span><select id="colorPreset"><option value="original">원본 색상</option><option value="dim">부드러운 회색</option><option value="warm">따뜻한 회색</option><option value="custom">사용자 색</option></select></label>
+          <fieldset id="colorSettings"><legend class="sr-only">문서 색상 조절</legend>
+            <label class="color-row"><span>종이 배경</span><input id="paperColor" type="color" value="#2d3035" aria-label="종이 배경색"></label>
+            <label class="color-row"><span>글자</span><input id="textColor" type="color" value="#c4c6cc" aria-label="글자색"></label>
+            <label class="color-strength" for="accentStrength"><span>강조색 강도 <output id="accentValue">45%</output></span><input id="accentStrength" type="range" min="0" max="80" step="1" value="45" aria-label="강조색 강도"></label>
+          </fieldset>
+          <div class="color-preview" id="colorPreview"><span>편안하게 읽는 글자</span><b>강조색 미리보기</b></div>
+          <p>화면에만 적용됩니다. 사진과 도표의 색도 함께 바뀝니다.</p>
+        </section>
+        <section id="morePanel" class="reader-panel more-panel" aria-label="추가 보기 설정" hidden>
+          <div class="panel-heading"><strong>추가 보기 설정</strong><button id="moreClose" class="icon-button" aria-label="추가 보기 설정 닫기">×</button></div>
+          <label class="cover-control"><input id="cover" type="checkbox"><span>표지 따로 보기<small>첫 페이지를 한 쪽으로 표시</small></span></label>
+          <button class="text-button panel-action" id="rotate" title="시계 방향으로 회전 (R)"><span>↻ 페이지 회전</span><kbd>R</kbd></button>
+          <button class="text-button panel-action" id="help" title="단축키 안내"><span>키보드·스크롤 안내</span><span aria-hidden="true">?</span></button>
+          <details id="qualitySettings" class="quality-details"><summary>화질 조절</summary>
+          <fieldset class="sharpness-settings"><legend class="sr-only">축소 선명도</legend>
+            <label class="color-strength" for="sharpness"><span>축소 선명도 <output id="sharpnessValue">25</output></span><input id="sharpness" type="range" min="0" max="100" step="1" value="25" aria-label="축소 선명도"></label>
+            <div class="sharpness-presets" role="group" aria-label="선명도 빠른 선택"><button data-sharpness="0" aria-pressed="false">끄기</button><button data-sharpness="25" aria-pressed="true">약하게</button><button data-sharpness="50" aria-pressed="false">중간</button></div>
+            <p>작게 맞춰 볼 때 글자 윤곽을 보정합니다.<br>확대한 화면은 원본 해상도를 우선합니다.</p>
+          </fieldset>
+          <fieldset class="reading-adjustment"><legend class="sr-only">가는 획 보강</legend>
+            <label class="adjustment-toggle"><input id="strokeEnabled" type="checkbox"><span>가는 획 보강</span></label>
+            <label class="color-strength" for="thinStroke"><span>보강 강도 <output id="thinStrokeValue">30</output></span><input id="thinStroke" type="range" min="0" max="100" step="1" value="30" aria-label="가는 획 보강 강도" disabled></label>
+            <p>축소 전에 가는 획을 아주 약하게 보강합니다. 작은 화면에 맞출 때 적용되며, 글자가 뭉쳐 보이면 강도를 낮추세요.</p>
+          </fieldset>
+          <fieldset class="reading-adjustment"><legend class="sr-only">글자 농도</legend>
+            <label class="adjustment-toggle"><input id="inkEnabled" type="checkbox"><span>글자 농도 보강</span></label>
+            <label class="color-strength" for="inkDensity"><span>농도 <output id="inkDensityValue">30</output></span><input id="inkDensity" type="range" min="0" max="100" step="1" value="30" aria-label="글자 농도" disabled></label>
+            <p>가는 회색 획을 조금 더 또렷하게 합니다.</p>
+          </fieldset>
+          <fieldset class="reading-adjustment"><legend class="sr-only">배경 정리</legend>
+            <label class="adjustment-toggle"><input id="cleanupEnabled" type="checkbox"><span>배경 정리</span></label>
+            <label class="color-strength" for="backgroundCleanup"><span>정리 강도 <output id="backgroundCleanupValue">25</output></span><input id="backgroundCleanup" type="range" min="0" max="100" step="1" value="25" aria-label="배경 정리 강도" disabled></label>
+            <p>옅은 종이 흔적을 줄입니다. 회색 도표가 흐려지면 강도를 낮추세요. 큰 확대에서는 화질 보정이 제한될 수 있습니다.</p>
+          </fieldset>
+          </details>
+        </section>
+        <div id="readingPage" class="reading-hud reading-page" aria-live="polite" aria-atomic="true"></div>
+        <time id="readingClock" class="reading-hud reading-clock" aria-label="현재 시간 (한국시간)"></time>
+        <div id="practiceDock" class="practice-dock" hidden>
+          <a id="currentPractice" target="_blank" rel="noopener noreferrer">기출 풀기 ↗</a>
+          <button id="practiceToggle" aria-label="장별 기출 목록" aria-expanded="false">⌃</button>
+          <section id="practicePopover" class="practice-popover" aria-label="이 교재의 레일노트 문제" hidden>
+            <div class="practice-heading"><strong id="practiceTitle"></strong><button id="practiceClose" aria-label="기출 목록 닫기">×</button></div>
+            <div id="practiceLinks"></div>
+          </section>
+        </div>
+      </section>
+    </main>
+  </div>
+  <div id="dropOverlay" class="drop-overlay" hidden><strong>놓아서 PDF 열기</strong></div>
+  <div id="toast" class="toast" role="status" hidden></div>
+  <dialog id="gptDialog" class="gpt-dialog" aria-labelledby="gptTitle">
+    <div class="panel-heading"><strong id="gptTitle">선택 영역으로 GPT 질문</strong><button id="gptClose" class="icon-button" aria-label="GPT 질문 닫기">×</button></div>
+    <div id="gptSource" class="gpt-source"></div><img id="gptPreview" class="gpt-preview" alt="질문할 PDF 선택 영역">
+    <details class="gpt-project"><summary>연결 프로젝트: <span id="gptProjectLabel">유관사 질문</span></summary><label>프로젝트 이름<input id="gptProjectName" type="text" maxlength="100" value="유관사 질문"></label><label>프로젝트 주소<input id="gptProjectUrl" type="url" placeholder="https://chatgpt.com/g/g-p-…/project" aria-label="ChatGPT 프로젝트 주소"></label><p>처음 한 번 입력하면 저장됩니다. 기존 Chrome의 ChatGPT 탭에서 이 프로젝트를 엽니다.</p></details>
+    <div class="gpt-presets"><button data-gpt-question="이 부분을 쉽게 설명하고 구체적인 예시를 들어줘.">쉽게 설명</button><button data-gpt-question="이 부분의 개념들을 비교하고 차이점을 설명해줘.">차이점 비교</button><button data-gpt-question="이 부분의 문제를 풀고 풀이 과정을 설명해줘.">문제 풀이</button></div>
+    <textarea id="gptQuestion" rows="4" maxlength="12000" aria-label="GPT에게 물어볼 질문">이 부분을 쉽게 설명하고 구체적인 예시를 들어줘.</textarea>
+    <p id="gptStatus" class="gpt-status" role="status"></p>
+    <div class="gpt-actions"><button id="gptReselect" class="text-button">다시 선택</button><button id="gptOpen" class="primary">ChatGPT에 입력하기</button></div>
+    <details class="gpt-fallback"><summary>직접 붙여넣기</summary><button id="gptCopyImage" class="text-button">이미지 복사</button><button id="gptCopyQuestion" class="text-button">질문 복사</button></details>
+  </dialog>
+  <dialog id="libraryManager" class="library-manager" aria-labelledby="libraryManagerTitle">
+    <div class="panel-heading"><strong id="libraryManagerTitle">내 자료와 목차 관리</strong><button id="libraryManagerClose" class="icon-button" aria-label="책장 관리 닫기">×</button></div>
+    <p>파일을 선택해 등록하면 이 프로그램의 자료 폴더에 복사해 보관합니다. 기본 교재는 기존 목차에서 계속 볼 수 있습니다.</p>
+    <div class="catalog-actions"><button id="catalogAddPdf" class="primary">PDF 등록</button><button id="catalogAddDirectory" class="text-button">폴더째 등록</button><button id="catalogRoot" class="text-button">맨 위 선택</button></div>
+    <input id="catalogFiles" type="file" accept=".pdf,application/pdf" multiple hidden><input id="catalogDirectory" type="file" webkitdirectory multiple hidden>
+    <div class="catalog-folder"><input id="catalogNewFolder" placeholder="새 목차 / 폴더 이름" aria-label="새 목차 이름" maxlength="180"><button id="catalogAddFolder" class="text-button">목차 추가</button></div>
+    <div class="catalog-layout"><div id="catalogTree" class="catalog-tree" aria-label="내 자료 목차"></div><div class="catalog-editor"><label>이름<input id="catalogName" maxlength="180" aria-label="목차 항목 이름"></label><label>위치<select id="catalogParent" aria-label="목차 항목 위치"></select></label><button id="catalogSave" class="primary">변경 저장</button><div class="catalog-order"><button id="catalogUp" class="text-button">위로 ↑</button><button id="catalogDown" class="text-button">아래로 ↓</button><button id="catalogRemove" class="text-button">책장에서 제외</button></div></div></div>
+    <p id="libraryStatus" class="manager-status" role="status"></p><details><summary>제외한 항목 복원</summary><div id="catalogTrash"></div></details>
+  </dialog>
+  <dialog id="updateDialog" class="update-dialog" aria-labelledby="updateTitle"><div class="panel-heading"><strong id="updateTitle">프로그램 업데이트</strong><button id="updateClose" class="icon-button" aria-label="업데이트 닫기">×</button></div><p>현재 버전 <b id="updateCurrent"></b></p><p>GitHub · <span id="updateRepository">lykeion/PDF_view</span></p><p>프로그램 파일만 교체합니다. 등록한 PDF·목차·읽기 기록과 개인 설정은 유지됩니다.</p><p id="updateStatus" class="manager-status" role="status">업데이트 확인 중…</p><div class="catalog-actions"><button id="updateCheck" class="text-button">다시 확인</button><button id="updateInstall" class="primary" disabled>업데이트 후 다시 시작</button></div></dialog>
+  <dialog id="helpDialog"><form method="dialog"><button class="dialog-close" aria-label="닫기">×</button></form><h2>키보드와 스크롤</h2><dl><dt>마우스 휠</dt><dd>문서 안에서 스크롤</dd><dt>페이지 끝에서 다시 휠</dt><dd>이전 / 다음 쪽</dd><dt>← / → · Page Up / Down</dt><dd>이전 / 다음 쪽</dd><dt>Home / End</dt><dd>첫 쪽 / 마지막 쪽</dd><dt>Ctrl + 마우스 휠</dt><dd>한 틱마다 1%p 조정</dd><dt>+ / −</dt><dd>10%p 확대 / 축소</dd><dt>0</dt><dd>화면에 맞추기</dd><dt>F11 / F · Esc</dt><dd>PDF 전체보기 · 일반 창 복원</dd><dt>R</dt><dd>회전</dd><dt>Ctrl + O</dt><dd>PDF 열기</dd></dl><p>스크롤 중 페이지의 위·아래 끝에 닿으면 먼저 멈춥니다.<br>휠 입력을 잠깐 쉬었다가 같은 방향으로 다시 움직이면 쪽을 넘깁니다.</p><p>확대 배율 100%는 화면 맞춤 기준입니다.<br>원본 스캔 해상도를 살려 표시하며, 작은 화면에 맞출 때는 축소 보간됩니다.</p></dialog>
+  <dialog id="passwordDialog"><form id="passwordForm"><h2>암호가 필요한 PDF</h2><p id="passwordMessage">문서 암호를 입력하세요.</p><input id="passwordInput" type="password" autocomplete="off" aria-label="PDF 암호" required><div class="dialog-actions"><button id="passwordCancel" type="button" class="text-button">취소</button><button class="primary" type="submit">열기</button></div></form></dialog>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,729 @@
+{
+  "version": 1,
+  "source": "Reviewed concept_tree.json + concepts.json; routes verified against railnote cloud-dist/retail-concepts.js",
+  "files": [
+    {
+      "group": "유관사 개념 pdf",
+      "relativePath": "1.유통물류 일반관리/01_유통의 이해.pdf",
+      "label": "유통의 이해",
+      "subject": 1,
+      "part": 1,
+      "links": [
+        {
+          "label": "1장 · 유통산업의 이해",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailChapter=1-1-1",
+          "kind": "chapter",
+          "pageStart": 3,
+          "pageEnd": 8
+        },
+        {
+          "label": "2장 · 유통경로 및 구조",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailChapter=1-1-2",
+          "kind": "chapter",
+          "pageStart": 9,
+          "pageEnd": 20
+        },
+        {
+          "label": "3장 · 유통경제",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailChapter=1-1-3",
+          "kind": "chapter",
+          "pageStart": 21,
+          "pageEnd": 25
+        },
+        {
+          "label": "4장 · 유통산업의 이해 및 환경",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailChapter=1-1-4",
+          "kind": "chapter",
+          "pageStart": 26,
+          "pageEnd": 29
+        },
+        {
+          "label": "이 편의 교재 말미 문제",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailTextbookPart=1-1",
+          "kind": "textbook",
+          "pageStart": 30,
+          "pageEnd": 35
+        }
+      ]
+    },
+    {
+      "group": "유관사 개념 pdf",
+      "relativePath": "1.유통물류 일반관리/02_유통경영전략.pdf",
+      "label": "유통경영전략",
+      "subject": 1,
+      "part": 2,
+      "links": [
+        {
+          "label": "1장 · 유통경영환경분석",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailChapter=1-2-1",
+          "kind": "chapter",
+          "pageStart": 1,
+          "pageEnd": 4
+        },
+        {
+          "label": "2장 · 유통경영전략의 수립과 실행",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailChapter=1-2-2",
+          "kind": "chapter",
+          "pageStart": 5,
+          "pageEnd": 13
+        },
+        {
+          "label": "3장 · 유통경영전략의 대안평가 및 통제",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailChapter=1-2-3",
+          "kind": "chapter",
+          "pageStart": 14,
+          "pageEnd": 15
+        },
+        {
+          "label": "이 편의 교재 말미 문제",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailTextbookPart=1-2",
+          "kind": "textbook",
+          "pageStart": 16,
+          "pageEnd": 21
+        }
+      ]
+    },
+    {
+      "group": "유관사 개념 pdf",
+      "relativePath": "1.유통물류 일반관리/03_유통경영관리.pdf",
+      "label": "유통경영관리",
+      "subject": 1,
+      "part": 3,
+      "links": [
+        {
+          "label": "1장 · 조직관리",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailChapter=1-3-1",
+          "kind": "chapter",
+          "pageStart": 1,
+          "pageEnd": 13
+        },
+        {
+          "label": "2장 · 인적자원관리",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailChapter=1-3-2",
+          "kind": "chapter",
+          "pageStart": 14,
+          "pageEnd": 19
+        },
+        {
+          "label": "3장 · 재무관리 및 회계",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailChapter=1-3-3",
+          "kind": "chapter",
+          "pageStart": 20,
+          "pageEnd": 26
+        },
+        {
+          "label": "4장 · 구매 및 조달관리",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailChapter=1-3-4",
+          "kind": "chapter",
+          "pageStart": 27,
+          "pageEnd": 29
+        },
+        {
+          "label": "이 편의 교재 말미 문제",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailTextbookPart=1-3",
+          "kind": "textbook",
+          "pageStart": 30,
+          "pageEnd": 35
+        }
+      ]
+    },
+    {
+      "group": "유관사 개념 pdf",
+      "relativePath": "1.유통물류 일반관리/04_물류경영관리.pdf",
+      "label": "물류경영관리",
+      "subject": 1,
+      "part": 4,
+      "links": [
+        {
+          "label": "1장 · 도소매물류의 이해",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailChapter=1-4-1",
+          "kind": "chapter",
+          "pageStart": 1,
+          "pageEnd": 5
+        },
+        {
+          "label": "2장 · 도소매물류관리",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailChapter=1-4-2",
+          "kind": "chapter",
+          "pageStart": 6,
+          "pageEnd": 22
+        },
+        {
+          "label": "이 편의 교재 말미 문제",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailTextbookPart=1-4",
+          "kind": "textbook",
+          "pageStart": 23,
+          "pageEnd": 28
+        }
+      ]
+    },
+    {
+      "group": "유관사 개념 pdf",
+      "relativePath": "1.유통물류 일반관리/05_유통기업의 윤리와 법규.pdf",
+      "label": "유통기업의 윤리와 법규",
+      "subject": 1,
+      "part": 5,
+      "links": [
+        {
+          "label": "1장 · 기업윤리의 기본개념",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailChapter=1-5-1",
+          "kind": "chapter",
+          "pageStart": 1,
+          "pageEnd": 2
+        },
+        {
+          "label": "2장 · 유통관련법규",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailChapter=1-5-2",
+          "kind": "chapter",
+          "pageStart": 3,
+          "pageEnd": 8
+        },
+        {
+          "label": "이 편의 교재 말미 문제",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailTextbookPart=1-5",
+          "kind": "textbook",
+          "pageStart": 9,
+          "pageEnd": 12
+        }
+      ]
+    },
+    {
+      "group": "유관사 개념 pdf",
+      "relativePath": "2.상권분석/01_유통상권조사.pdf",
+      "label": "유통상권조사",
+      "subject": 2,
+      "part": 1,
+      "links": [
+        {
+          "label": "1장 · 상권의 개요",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailChapter=2-1-1",
+          "kind": "chapter",
+          "pageStart": 3,
+          "pageEnd": 8
+        },
+        {
+          "label": "2장 · 상권분석에서의 정보기술 활용",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailChapter=2-1-2",
+          "kind": "chapter",
+          "pageStart": 9,
+          "pageEnd": 11
+        },
+        {
+          "label": "3장 · 상권설정 및 분석",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailChapter=2-1-3",
+          "kind": "chapter",
+          "pageStart": 12,
+          "pageEnd": 24
+        },
+        {
+          "label": "이 편의 교재 말미 문제",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailTextbookPart=2-1",
+          "kind": "textbook",
+          "pageStart": 25,
+          "pageEnd": 30
+        }
+      ]
+    },
+    {
+      "group": "유관사 개념 pdf",
+      "relativePath": "2.상권분석/02_입지분석.pdf",
+      "label": "입지분석",
+      "subject": 2,
+      "part": 2,
+      "links": [
+        {
+          "label": "1장 · 입지의 개요",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailChapter=2-2-1",
+          "kind": "chapter",
+          "pageStart": 1,
+          "pageEnd": 2
+        },
+        {
+          "label": "2장 · 입지별 유형",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailChapter=2-2-2",
+          "kind": "chapter",
+          "pageStart": 3,
+          "pageEnd": 8
+        },
+        {
+          "label": "3장 · 입지선정 및 분석",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailChapter=2-2-3",
+          "kind": "chapter",
+          "pageStart": 9,
+          "pageEnd": 27
+        },
+        {
+          "label": "4장 · 경쟁점 조사·분석",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailChapter=2-2-4",
+          "kind": "chapter",
+          "pageStart": 28,
+          "pageEnd": 30
+        },
+        {
+          "label": "이 편의 교재 말미 문제",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailTextbookPart=2-2",
+          "kind": "textbook",
+          "pageStart": 31,
+          "pageEnd": 36
+        }
+      ]
+    },
+    {
+      "group": "유관사 개념 pdf",
+      "relativePath": "2.상권분석/03_개점전략.pdf",
+      "label": "개점전략",
+      "subject": 2,
+      "part": 3,
+      "links": [
+        {
+          "label": "1장 · 개점계획",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailChapter=2-3-1",
+          "kind": "chapter",
+          "pageStart": 1,
+          "pageEnd": 5
+        },
+        {
+          "label": "2장 · 개점과 폐점",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailChapter=2-3-2",
+          "kind": "chapter",
+          "pageStart": 6,
+          "pageEnd": 10
+        },
+        {
+          "label": "이 편의 교재 말미 문제",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailTextbookPart=2-3",
+          "kind": "textbook",
+          "pageStart": 11,
+          "pageEnd": 15
+        }
+      ]
+    },
+    {
+      "group": "유관사 개념 pdf",
+      "relativePath": "3.유통마케팅/01_유통마케팅 전략기획.pdf",
+      "label": "유통마케팅 전략기획",
+      "subject": 3,
+      "part": 1,
+      "links": [
+        {
+          "label": "1장 · 유통마케팅 전략",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailChapter=3-1-1",
+          "kind": "chapter",
+          "pageStart": 3,
+          "pageEnd": 11
+        },
+        {
+          "label": "2장 · 유통경쟁전략",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailChapter=3-1-2",
+          "kind": "chapter",
+          "pageStart": 12,
+          "pageEnd": 18
+        },
+        {
+          "label": "3장 · 제품관리 및 머천다이징 전략",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailChapter=3-1-3",
+          "kind": "chapter",
+          "pageStart": 19,
+          "pageEnd": 28
+        },
+        {
+          "label": "4장 · 가격관리전략",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailChapter=3-1-4",
+          "kind": "chapter",
+          "pageStart": 29,
+          "pageEnd": 32
+        },
+        {
+          "label": "5장 · 판매촉진전략",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailChapter=3-1-5",
+          "kind": "chapter",
+          "pageStart": 33,
+          "pageEnd": 38
+        },
+        {
+          "label": "이 편의 교재 말미 문제",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailTextbookPart=3-1",
+          "kind": "textbook",
+          "pageStart": 39,
+          "pageEnd": 44
+        }
+      ]
+    },
+    {
+      "group": "유관사 개념 pdf",
+      "relativePath": "3.유통마케팅/02_디지털마케팅 전략.pdf",
+      "label": "디지털마케팅 전략",
+      "subject": 3,
+      "part": 2,
+      "links": [
+        {
+          "label": "1장 · 디지털마케팅",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailChapter=3-2-1",
+          "kind": "chapter",
+          "pageStart": 1,
+          "pageEnd": 1
+        },
+        {
+          "label": "2장 · 웹사이트 및 온라인 쇼핑몰 구축",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailChapter=3-2-2",
+          "kind": "chapter",
+          "pageStart": 2,
+          "pageEnd": 4
+        },
+        {
+          "label": "3장 · 소셜미디어 마케팅",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailChapter=3-2-3",
+          "kind": "chapter",
+          "pageStart": 5,
+          "pageEnd": 5
+        },
+        {
+          "label": "4장 · 데이터분석과 성과측정",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailChapter=3-2-4",
+          "kind": "chapter",
+          "pageStart": 6,
+          "pageEnd": 7
+        },
+        {
+          "label": "5장 · 온라인 쇼핑몰 관리",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailChapter=3-2-5",
+          "kind": "chapter",
+          "pageStart": 8,
+          "pageEnd": 10
+        },
+        {
+          "label": "이 편의 교재 말미 문제",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailTextbookPart=3-2",
+          "kind": "textbook",
+          "pageStart": 11,
+          "pageEnd": 14
+        }
+      ]
+    },
+    {
+      "group": "유관사 개념 pdf",
+      "relativePath": "3.유통마케팅/03_점포관리.pdf",
+      "label": "점포관리",
+      "subject": 3,
+      "part": 3,
+      "links": [
+        {
+          "label": "1장 · 점포의 구성",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailChapter=3-3-1",
+          "kind": "chapter",
+          "pageStart": 1,
+          "pageEnd": 1
+        },
+        {
+          "label": "2장 · 매장 레이아웃",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailChapter=3-3-2",
+          "kind": "chapter",
+          "pageStart": 2,
+          "pageEnd": 5
+        },
+        {
+          "label": "3장 · 상품진열",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailChapter=3-3-3",
+          "kind": "chapter",
+          "pageStart": 6,
+          "pageEnd": 9
+        },
+        {
+          "label": "4장 · 점포공간 및 환경관리",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailChapter=3-3-4",
+          "kind": "chapter",
+          "pageStart": 10,
+          "pageEnd": 10
+        },
+        {
+          "label": "5장 · 비주얼 머천다이징",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailChapter=3-3-5",
+          "kind": "chapter",
+          "pageStart": 11,
+          "pageEnd": 14
+        },
+        {
+          "label": "이 편의 교재 말미 문제",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailTextbookPart=3-3",
+          "kind": "textbook",
+          "pageStart": 15,
+          "pageEnd": 19
+        }
+      ]
+    },
+    {
+      "group": "유관사 개념 pdf",
+      "relativePath": "3.유통마케팅/04_상품판매와 고객관리.pdf",
+      "label": "상품판매와 고객관리",
+      "subject": 3,
+      "part": 4,
+      "links": [
+        {
+          "label": "1장 · 상품판매관리 및 판매서비스",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailChapter=3-4-1",
+          "kind": "chapter",
+          "pageStart": 1,
+          "pageEnd": 3
+        },
+        {
+          "label": "2장 · 고객관리",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailChapter=3-4-2",
+          "kind": "chapter",
+          "pageStart": 4,
+          "pageEnd": 8
+        },
+        {
+          "label": "3장 · CRM 전략 및 구현방안",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailChapter=3-4-3",
+          "kind": "chapter",
+          "pageStart": 9,
+          "pageEnd": 11
+        },
+        {
+          "label": "이 편의 교재 말미 문제",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailTextbookPart=3-4",
+          "kind": "textbook",
+          "pageStart": 12,
+          "pageEnd": 15
+        }
+      ]
+    },
+    {
+      "group": "유관사 개념 pdf",
+      "relativePath": "3.유통마케팅/05_유통마케팅 조사와 평가.pdf",
+      "label": "유통마케팅 조사와 평가",
+      "subject": 3,
+      "part": 5,
+      "links": [
+        {
+          "label": "1장 · 유통마케팅 조사",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailChapter=3-5-1",
+          "kind": "chapter",
+          "pageStart": 1,
+          "pageEnd": 6
+        },
+        {
+          "label": "2장 · 유통마케팅의 성과평가",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailChapter=3-5-2",
+          "kind": "chapter",
+          "pageStart": 7,
+          "pageEnd": 10
+        },
+        {
+          "label": "이 편의 교재 말미 문제",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailTextbookPart=3-5",
+          "kind": "textbook",
+          "pageStart": 11,
+          "pageEnd": 13
+        }
+      ]
+    },
+    {
+      "group": "유관사 개념 pdf",
+      "relativePath": "4.유통정보/01_유통정보의 이해.pdf",
+      "label": "유통정보의 이해",
+      "subject": 4,
+      "part": 1,
+      "links": [
+        {
+          "label": "1장 · 정보의 개념과 정보화 사회",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailChapter=4-1-1",
+          "kind": "chapter",
+          "pageStart": 3,
+          "pageEnd": 9
+        },
+        {
+          "label": "2장 · 정보와 유통혁명",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailChapter=4-1-2",
+          "kind": "chapter",
+          "pageStart": 10,
+          "pageEnd": 11
+        },
+        {
+          "label": "3장 · 정보와 의사결정",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailChapter=4-1-3",
+          "kind": "chapter",
+          "pageStart": 12,
+          "pageEnd": 16
+        },
+        {
+          "label": "4장 · 유통정보시스템",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailChapter=4-1-4",
+          "kind": "chapter",
+          "pageStart": 17,
+          "pageEnd": 22
+        },
+        {
+          "label": "이 편의 교재 말미 문제",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailTextbookPart=4-1",
+          "kind": "textbook",
+          "pageStart": 23,
+          "pageEnd": 28
+        }
+      ]
+    },
+    {
+      "group": "유관사 개념 pdf",
+      "relativePath": "4.유통정보/02_지식경영.pdf",
+      "label": "지식경영",
+      "subject": 4,
+      "part": 2,
+      "links": [
+        {
+          "label": "1장 · 지식경영의 개념",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailChapter=4-2-1",
+          "kind": "chapter",
+          "pageStart": 1,
+          "pageEnd": 2
+        },
+        {
+          "label": "2장 · 지식경영 프로세스",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailChapter=4-2-2",
+          "kind": "chapter",
+          "pageStart": 3,
+          "pageEnd": 7
+        },
+        {
+          "label": "3장 · 지식경영 정보기술과 지식관리시스템",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailChapter=4-2-3",
+          "kind": "chapter",
+          "pageStart": 8,
+          "pageEnd": 10
+        },
+        {
+          "label": "이 편의 교재 말미 문제",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailTextbookPart=4-2",
+          "kind": "textbook",
+          "pageStart": 11,
+          "pageEnd": 12
+        }
+      ]
+    },
+    {
+      "group": "유관사 개념 pdf",
+      "relativePath": "4.유통정보/03_주요 유통정보화 기술 및 시스템.pdf",
+      "label": "주요 유통정보화 기술 및 시스템",
+      "subject": 4,
+      "part": 3,
+      "links": [
+        {
+          "label": "1장 · 바코드의 이해",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailChapter=4-3-1",
+          "kind": "chapter",
+          "pageStart": 1,
+          "pageEnd": 11
+        },
+        {
+          "label": "2장 · POS 시스템",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailChapter=4-3-2",
+          "kind": "chapter",
+          "pageStart": 12,
+          "pageEnd": 13
+        },
+        {
+          "label": "3장 · POS 데이터의 분류 및 활용",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailChapter=4-3-3",
+          "kind": "chapter",
+          "pageStart": 14,
+          "pageEnd": 18
+        },
+        {
+          "label": "4장 · EDI 구축 및 효과",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailChapter=4-3-4",
+          "kind": "chapter",
+          "pageStart": 19,
+          "pageEnd": 25
+        },
+        {
+          "label": "5장 · QR 시스템 구축 및 효과",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailChapter=4-3-5",
+          "kind": "chapter",
+          "pageStart": 26,
+          "pageEnd": 30
+        },
+        {
+          "label": "이 편의 교재 말미 문제",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailTextbookPart=4-3",
+          "kind": "textbook",
+          "pageStart": 31,
+          "pageEnd": 34
+        }
+      ]
+    },
+    {
+      "group": "유관사 개념 pdf",
+      "relativePath": "4.유통정보/04_유통정보의 관리와 활용.pdf",
+      "label": "유통정보의 관리와 활용",
+      "subject": 4,
+      "part": 4,
+      "links": [
+        {
+          "label": "1장 · 데이터 관리",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailChapter=4-4-1",
+          "kind": "chapter",
+          "pageStart": 1,
+          "pageEnd": 4
+        },
+        {
+          "label": "2장 · 고객충성도 프로그램",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailChapter=4-4-2",
+          "kind": "chapter",
+          "pageStart": 5,
+          "pageEnd": 8
+        },
+        {
+          "label": "3장 · e-SCM",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailChapter=4-4-3",
+          "kind": "chapter",
+          "pageStart": 9,
+          "pageEnd": 17
+        },
+        {
+          "label": "이 편의 교재 말미 문제",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailTextbookPart=4-4",
+          "kind": "textbook",
+          "pageStart": 18,
+          "pageEnd": 21
+        }
+      ]
+    },
+    {
+      "group": "유관사 개념 pdf",
+      "relativePath": "4.유통정보/05_전자상거래.pdf",
+      "label": "전자상거래",
+      "subject": 4,
+      "part": 5,
+      "links": [
+        {
+          "label": "1장 · 전자상거래 개요",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailChapter=4-5-1",
+          "kind": "chapter",
+          "pageStart": 1,
+          "pageEnd": 11
+        },
+        {
+          "label": "2장 · 전자상거래 기반기술과 운영",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailChapter=4-5-2",
+          "kind": "chapter",
+          "pageStart": 12,
+          "pageEnd": 17
+        },
+        {
+          "label": "3장 · 신융합기술의 유통분야에서의 응용",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailChapter=4-5-3",
+          "kind": "chapter",
+          "pageStart": 18,
+          "pageEnd": 24
+        },
+        {
+          "label": "이 편의 교재 말미 문제",
+          "url": "https://railnote.web.app/?exam=distribution-2&retailTextbookPart=4-5",
+          "kind": "textbook",
+          "pageStart": 25,
+          "pageEnd": 27
+        }
+      ]
+    }
+  ],
+  "pageRangeBasis": "Chapter printed_start_page matched to a unique reviewed page_references.pdf_page; chapter ends before the next chapter or textbook-exercise start. Textbook range uses reviewed questions.pdf_pages."
+}

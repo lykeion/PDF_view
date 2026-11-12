@@ -1,0 +1,8 @@
+user-data/
+.browser-profile/
+.gpt-transfer/
+.updates/
+gpt-project-settings.json
+releases/
+runtime/
+*.pdf
